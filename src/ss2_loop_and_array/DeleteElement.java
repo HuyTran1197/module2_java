@@ -24,15 +24,19 @@ public class DeleteElement {
         System.out.print("enter the element need to delete: ");
         int findX = Integer.parseInt(scanner.nextLine());
         for (int i = 0; i < array.length; i++) {
-            if (array[i] == findX){
-                for (int j = i; j < array.length-1; j++) {
-                    array[j] = array[j+1];
+            if (array[i] == findX) {
+                for (int j = i; j < array.length - 1; j++) {
+                    array[j] = array[j + 1];
                 }
-                array[array.length-1]=0;
+                array[array.length - 1] = 0;
                 i--;
             }
         }
+        int[] newArr = new int[array.length-1];
+        for (int i = 0; i < array.length-1; i++) {
+            newArr[i] = array[i];
+        }
         System.out.println("array after delete");
-        System.out.println(Arrays.toString(array));
+        System.out.println(Arrays.toString(newArr));
     }
 }
