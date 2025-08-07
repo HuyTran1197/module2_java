@@ -35,7 +35,7 @@ public class QuadraticEquation {
         System.out.println("enter c");
         double c = Double.parseDouble(scanner.nextLine());
         if (a==0){
-            System.out.println("the equation has no roots");
+            System.out.println("is not the equation");
         } else{
             QuadraticEquation equation = new QuadraticEquation(a,b,c);
             double delta = equation.getDiscriminant();
