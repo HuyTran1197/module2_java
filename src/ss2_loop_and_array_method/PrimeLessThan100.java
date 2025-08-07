@@ -1,4 +1,4 @@
-package ss2_loop_and_array;
+package ss2_loop_and_array_method;
 public class PrimeLessThan100 {
     public static boolean isPrime2(int n){
         if (n<2) return false;

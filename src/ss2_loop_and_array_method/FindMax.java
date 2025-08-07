@@ -1,6 +1,5 @@
-package ss2_loop_and_array;
+package ss2_loop_and_array_method;
 import java.util.Scanner;
-import java.util.Arrays;
 
 public class FindMax {
     public static void main(String[] args) {

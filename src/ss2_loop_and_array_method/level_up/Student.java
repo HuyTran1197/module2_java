@@ -1,4 +1,4 @@
-package ss2_loop_and_array.level_up;
+package ss2_loop_and_array_method.level_up;
 import java.util.Scanner;
 import java.util.Arrays;
 
