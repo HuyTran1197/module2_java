@@ -4,13 +4,14 @@ public class Student {
     private static String name = "John";
     private static String classes = "C02";
     public Student(){
-        Student.name = name;
-        Student.classes = classes;
+
     }
-    public static void setName(String name){
+    protected void setName(String name){
         Student.name = name;
+        System.out.print("My name is "+Student.name);
     }
-    public static void setClasses(String classes){
+    protected void setClasses(String classes){
         Student.classes = classes;
+        System.out.print(" and I'm learning class "+Student.classes+" at CodeGym Da Nang");
     }
 }

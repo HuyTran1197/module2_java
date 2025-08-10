@@ -1,18 +1,15 @@
 package ss5_accessmodifier_static.bai_tap;
-
-import java.util.Scanner;
-
 public class Circle {
-    private double radius = 1.0;
+    private static double radius = 1.0;
     private String color = "red";
     public Circle(){
 
     }
     public Circle(double radius){
-        this.radius = radius;
+        Circle.radius = radius;
     }
 
-    private double getRadius() {
+    protected static double getRadius() {
         return radius;
     }
     protected double getArea(){

@@ -6,8 +6,8 @@ public class Test {
         Scanner scanner = new Scanner(System.in);
         String name = scanner.nextLine();
         String classes = scanner.nextLine();
-        Student.setName(name);
-        Student.setClasses(classes);
-        System.out.println("Student "+name+" is learning "+classes+" at CodeGym DaNang");
-    }
+        Student student = new Student();
+        student.setName(name);
+        student.setClasses(classes);
+        }
 }
