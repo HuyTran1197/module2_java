@@ -7,7 +7,6 @@ public class Run {
         System.out.print("enter radius: ");
         double radius = Double.parseDouble(scanner.nextLine());
         Circle circle = new Circle(radius);
-        circle.setRadius(radius);
         System.out.println(circle);
         System.out.print("enter height: ");
         double height = Double.parseDouble(scanner.nextLine());
