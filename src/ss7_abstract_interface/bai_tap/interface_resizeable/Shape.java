@@ -11,7 +11,7 @@ public abstract class Shape implements Resizeable{
         this.color = color;
         this.filled = filled;
     }
-
+    public abstract double getArea2();
     public String getColor() {
         return color;
     }
@@ -27,7 +27,6 @@ public abstract class Shape implements Resizeable{
     public void setFilled(boolean filled) {
         this.filled = filled;
     }
-
     @Override
     public String toString() {
         return "A Shape with color of "

@@ -47,6 +47,10 @@ public class Rectangle extends Shape implements Resizeable{
         length += (getLength()*percent)/100;
     }
     @Override
+    public double getArea2(){
+        return getArea();
+    }
+    @Override
     public String toString() {
         return "A Rectangle with width="
                 + getWidth()

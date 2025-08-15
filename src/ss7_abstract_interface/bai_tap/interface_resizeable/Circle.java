@@ -34,7 +34,10 @@ public class Circle extends Shape implements Resizeable{
     public void reSize(double percent){
         radius += (getRadius()*percent)/100;
     }
-
+    @Override
+    public double getArea2(){
+        return getArea();
+    }
     @Override
     public String toString() {
         return "A Circle with radius="
