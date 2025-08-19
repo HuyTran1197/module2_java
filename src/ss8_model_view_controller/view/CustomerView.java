@@ -1,5 +1,6 @@
 package ss8_model_view_controller.view;
 import ss8_model_view_controller.entity.Customer;
+import ss8_model_view_controller.servicce.CustomerService;
 import ss8_model_view_controller.servicce.ICustomerService;
 
 import java.util.Scanner;
@@ -39,5 +40,16 @@ public class CustomerView {
         } else{
             System.out.println("canceled delete");
         }
+    }
+    public static Customer inputDataToUpdate(){
+        System.out.println("enter id need to update");
+        int id = Integer.parseInt(scanner.nextLine());
+        System.out.println("enter new name");
+        String newName = scanner.nextLine();
+        System.out.println("enter new email");
+        String newEmail = scanner.nextLine();
+        System.out.println("enter new address");
+        String newAddress = scanner.nextLine();
+        return new Customer(id,newName,newEmail,newAddress);
     }
 }

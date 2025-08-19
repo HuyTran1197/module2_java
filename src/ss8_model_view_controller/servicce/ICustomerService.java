@@ -6,4 +6,5 @@ public interface ICustomerService {
     Customer[] findAll();
     boolean add(Customer customer);
     boolean delete(int id);
+    boolean update(Customer customer);
 }

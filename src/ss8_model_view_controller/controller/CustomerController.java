@@ -15,9 +15,9 @@ public class CustomerController {
             System.out.println("---Customer manager---");
             System.out.println("function: "+
                     "\n 1. List"+
-                    "\n 2. Add new"+
+                    "\n 2. Add"+
                     "\n 3. Delete"+
-                    "\n 4. Find"+
+                    "\n 4. Update"+
                     "\n 5. Return main menu"
             );
             System.out.println("choose function");
@@ -29,7 +29,7 @@ public class CustomerController {
                     CustomerView.displayList(customerList);
                     break;
                 case 2:
-                    System.out.println("Add new");
+                    System.out.println("Add");
                     Customer customerAdd = CustomerView.inputDataToAddNew();
                     customerService.add(customerAdd);
                     break;
@@ -38,7 +38,9 @@ public class CustomerController {
                     CustomerView.inputDataToDelete(customerService);
                     break;
                 case 4:
-                    System.out.println("Find");
+                    System.out.println("Update");
+                    Customer customerUpdate = CustomerView.inputDataToUpdate();
+                    customerService.update(customerUpdate);
                     break;
                 default:
                     System.out.println("Returned main menu");

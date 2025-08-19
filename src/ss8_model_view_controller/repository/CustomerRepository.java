@@ -34,4 +34,16 @@ public class CustomerRepository implements ICustomerRepository{
         }
         return false;
     }
+    @Override
+    public boolean update(Customer customer){
+        for (int i = 0; i < customers.length; i++) {
+            if (customers[i]!=null){
+                if (customers[i].getId() == customer.getId()){
+                    customers[i] = customer;
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }
