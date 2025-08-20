@@ -4,31 +4,51 @@ import ss8_model_view_controller.entity.Customer;
 import ss8_model_view_controller.repository.CustomerRepository;
 import ss8_model_view_controller.repository.ICustomerRepository;
 
-public class CustomerService implements ICustomerService{
+import java.util.List;
+
+public class CustomerService implements ICustomerService {
     private ICustomerRepository customerRepository = new CustomerRepository();
+
     @Override
-    public Customer[] findAll(){
+    public List<Customer> findAll() {
         return customerRepository.findAll();
     }
+
     @Override
-    public boolean add(Customer customer){
-        Customer[] customers = customerRepository.findAll();
-        for (int i = 0; i < customers.length; i++) {
-            if (customers[i]!=null){
-                if (customers[i].getId() == customer.getId()){
+    public boolean add(Customer customer) {
+        List<Customer> customers = customerRepository.findAll();
+        for (int i = 0; i < customers.size(); i++) {
+            if (customers.get(i) != null) {
+                if (customers.get(i).getId() == customer.getId()) {
                     System.out.println("id already exists");
                     return false;
                 }
             } else break;
         }
+        if (customer == null) {
+            System.out.println("null list");
+            return false;
+        }
+        if (customer.getName() == null || customer.getEmail() == null || customer.getAddress() == null) {
+            return false;
+        }
         return customerRepository.add(customer);
     }
+
     @Override
-    public boolean delete(int id){
+    public boolean delete(int id) {
         return customerRepository.delete(id);
     }
+
     @Override
-    public boolean update(Customer customer){
+    public boolean update(Customer customer) {
+        if (customer == null) {
+            System.out.println("null list");
+            return false;
+        }
+        if (customer.getName() == null || customer.getEmail() == null || customer.getAddress() == null) {
+            return false;
+        }
         return customerRepository.update(customer);
     }
 }

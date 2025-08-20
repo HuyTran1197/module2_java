@@ -1,16 +1,16 @@
 package ss8_model_view_controller.view;
 import ss8_model_view_controller.entity.Customer;
-import ss8_model_view_controller.servicce.CustomerService;
 import ss8_model_view_controller.servicce.ICustomerService;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class CustomerView {
     private static Scanner scanner = new Scanner(System.in);
-    public static void displayList(Customer[] customerList){
-        for (int i = 0; i < customerList.length; i++) {
-            if (customerList[i]!=null){
-                System.out.println(customerList[i]);
+    public static void displayList(List<Customer> customerList){
+        for (int i = 0; i < customerList.size(); i++) {
+            if (customerList.get(i)!=null){
+                System.out.println(customerList.get(i));
             }
         }
     }

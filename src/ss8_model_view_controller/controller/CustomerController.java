@@ -1,4 +1,5 @@
 package ss8_model_view_controller.controller;
+import java.util.List;
 import java.util.Scanner;
 
 import ss8_model_view_controller.entity.Customer;
@@ -25,7 +26,7 @@ public class CustomerController {
             switch (choice){
                 case 1:
                     System.out.println("List");
-                    Customer[] customerList = customerService.findAll();
+                    List<Customer> customerList = customerService.findAll();
                     CustomerView.displayList(customerList);
                     break;
                 case 2:
@@ -40,7 +41,12 @@ public class CustomerController {
                 case 4:
                     System.out.println("Update");
                     Customer customerUpdate = CustomerView.inputDataToUpdate();
-                    customerService.update(customerUpdate);
+                    boolean isCheckAdd = customerService.update(customerUpdate);
+                    if (!isCheckAdd){
+                        System.out.println("failed update");
+                    } else{
+                        System.out.println("success updated");
+                    }
                     break;
                 default:
                     System.out.println("Returned main menu");

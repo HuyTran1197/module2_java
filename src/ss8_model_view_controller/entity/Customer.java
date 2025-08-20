@@ -9,7 +9,7 @@ public class Customer extends Person{
     }
     @Override
     public String toString(){
-        return "Customer "+getName()+
+        return "Customer "+
                 " {"+super.toString()+
                 "}";
     }
