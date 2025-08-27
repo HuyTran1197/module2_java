@@ -1,10 +1,11 @@
 package ss12_java_collection_framework;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Scanner;
 
 public class ProductManager{
     Scanner scanner = new Scanner(System.in);
-    private static ArrayList<Product> productArrayList = new ArrayList<>();
+    private static LinkedList<Product> productArrayList = new LinkedList<>();
 
     static {
         productArrayList.add(new Product("lamborghini",999));
