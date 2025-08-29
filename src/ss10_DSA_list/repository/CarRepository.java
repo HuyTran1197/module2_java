@@ -32,6 +32,16 @@ public class CarRepository implements ICarRepository{
         return false;
     }
     @Override
+    public boolean update(Car car){
+        for (int i = 0; i < cars.size(); i++) {
+            if (cars.get(i).getNumberOfVehicle().equals(car.getNumberOfVehicle())){
+                cars.set(i,car);
+                return true;
+            }
+        }
+        return false;
+    }
+    @Override
     public boolean find(String id){
         for (int i = 0; i < cars.size(); i++) {
             if (cars.get(i)!=null){

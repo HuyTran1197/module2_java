@@ -1,19 +1,23 @@
 package ss10_DSA_list.entity;
 
 public abstract class Vehicle {
+    private final int id;
+    private static int autoId = 1;
     private String numberOfVehicle;
     private String manufacturer;
     private int year;
     private String owner;
 
-    public Vehicle() {
-    }
-
     public Vehicle(String numberOfVehicle, String manufacturer, int year, String owner) {
+        this.id = autoId++;
         setNumberOfVehicle(numberOfVehicle);
         setManufacturer(manufacturer);
         setYear(year);
         setOwner(owner);
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getNumberOfVehicle() {
@@ -66,7 +70,7 @@ public abstract class Vehicle {
 
     @Override
     public String toString() {
-        return "id: "+
+        return "id: "+getId()+
                 ", number of vehicle: "+getNumberOfVehicle()+
                 ", manufacturer: '"+getManufacturer()+'\''+
                 ", year: "+getYear()+

@@ -39,7 +39,18 @@ public class CarService implements ICarService {
     public boolean delete(String id) {
         return carRepository.delete(id);
     }
-
+    @Override
+    public boolean update(Car car){
+        if (car == null){
+            System.out.println("invalid product");
+            return false;
+        }
+        if (car.getNumberOfVehicle()==null||car.getManufacturer()==null){
+            System.out.println("invalid product");
+            return false;
+        }
+        return carRepository.update(car);
+    }
     @Override
     public boolean find(String id) {
         return carRepository.find(id);

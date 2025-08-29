@@ -3,7 +3,7 @@ package ss10_DSA_list.controller;
 import java.util.Scanner;
 
 public class MainController {
-    public void displayMenu(){
+    public static void showList(){
         Scanner scanner = new Scanner(System.in);
         boolean flag = true;
         while (flag){
@@ -20,6 +20,7 @@ public class MainController {
             switch (choice){
                 case 1:
                     System.out.println("Add");
+                    CarController.showList();
                     break;
                 case 2:
                     System.out.println("Show list");

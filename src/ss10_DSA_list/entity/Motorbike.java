@@ -3,8 +3,6 @@ package ss10_DSA_list.entity;
 public class Motorbike extends Vehicle{
     private double capacity;
 
-    public Motorbike() {
-    }
 
     public Motorbike(String numberOfVehicle, String manufacturer, int year, String owner, double capacity) {
         super(numberOfVehicle, manufacturer, year, owner);

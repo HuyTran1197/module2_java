@@ -8,5 +8,6 @@ public interface ICarService {
     List<Car> findAll();
     boolean add(Car car);
     boolean delete(String id);
+    boolean update(Car car);
     boolean find(String id);
 }

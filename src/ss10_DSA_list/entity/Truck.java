@@ -3,8 +3,6 @@ package ss10_DSA_list.entity;
 public class Truck extends Vehicle{
     private double load;
 
-    public Truck() {
-    }
 
     public Truck(String numberOfVehicle, String manufacturer, int year, String owner, double load) {
         super(numberOfVehicle, manufacturer, year, owner);
