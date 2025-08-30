@@ -1,6 +1,5 @@
 package ss11_dsa_stack_queue.chuoi_palindrome;
 import java.util.LinkedList;
-import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Stack;
 
@@ -14,7 +13,7 @@ public class Palindrome {
             palStack.push(n);
         }
 
-        boolean checkArr = true;
+        boolean checkArr=true;
         while (!palQueue.isEmpty()){
             if (!palQueue.poll().equals(palStack.pop())){
                 checkArr = false;
