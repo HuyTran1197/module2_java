@@ -54,6 +54,10 @@ public class CarView {
         int yearUpdate = Integer.parseInt(scanner.nextLine());
         System.out.print("enter new owner: ");
         String ownerUpdate = scanner.nextLine();
-        return new Car(numUpdate,manuUpdate,yearUpdate,ownerUpdate, CarView.inputToUpdate().getSeats(), CarView.inputToUpdate().getType());
+        System.out.print("enter new seats: ");
+        int seats = Integer.parseInt(scanner.nextLine());
+        System.out.print("enter new type: ");
+        String type = scanner.nextLine();
+        return new Car(numUpdate,manuUpdate,yearUpdate,ownerUpdate, seats, type);
     }
 }
