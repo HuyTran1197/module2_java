@@ -1,7 +1,22 @@
 package ss13_search.thuc_hanh;
 
 public class BinarySearch {
-    public static int[] list = {2, 5, 7, 12, 15, 55, 63, 90};
+    static void sort(int[] arr){
+        for (int i = 0; i < arr.length-1; i++) {
+            boolean flag = true;
+            for (int j = 0; j < arr.length-i-1; j++) {
+                if (arr[j]>arr[j+1]){
+                    int temp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] =temp;
+                    flag = false;
+                }
+            }
+            if (flag){
+                break;
+            }
+        }
+    }
 
     public static int binarySearch(int[] list, int v) {
         int low = 0;
@@ -20,11 +35,15 @@ public class BinarySearch {
     }
 
     public static void main(String[] args) {
-        System.out.println(binarySearch(list, 20));
-        System.out.println(binarySearch(list, 5));
-        System.out.println(binarySearch(list, 2));
-        System.out.println(binarySearch(list, 90));
-        System.out.println(binarySearch(list, 55));
+        int[] arr1 = {5,2,6,8,0,14};
+        int[] arr2 = {5,3,7,8,0,29};
+        int[] arr3 = {5,1,6,8,20,14};
+        sort(arr1);
+        sort(arr2);
+        sort(arr3);
+        System.out.println(binarySearch(arr1,5));
+        System.out.println(binarySearch(arr2,29));
+        System.out.println(binarySearch(arr3,20));
     }
 }
 
