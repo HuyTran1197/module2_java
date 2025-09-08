@@ -21,7 +21,7 @@ public abstract class Vehicle {
     }
 
     public String getNumberOfVehicle() {
-        return numberOfVehicle;
+        return "43-/"+numberOfVehicle+"/";
     }
 
     public String getManufacturer() {

@@ -1,18 +1,18 @@
 package ss10_DSA_list.entity;
 
 public class Motorbike extends Vehicle{
-    private double capacity;
+    private String capacity;
 
 
-    public Motorbike(String numberOfVehicle, String manufacturer, int year, String owner, double capacity) {
+    public Motorbike(String numberOfVehicle, String manufacturer, int year, String owner, String capacity) {
         super(numberOfVehicle, manufacturer, year, owner);
         setCapacity(capacity);
     }
 
-    public double getCapacity() {
+    public String getCapacity() {
         return capacity;
     }
-    public void setCapacity(double capacity){
+    public void setCapacity(String capacity){
         this.capacity = capacity;
     }
     @Override

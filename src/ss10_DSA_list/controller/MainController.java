@@ -20,7 +20,15 @@ public class MainController {
             switch (choice){
                 case 1:
                     System.out.println("Add");
-                    CarController.showList();
+                    System.out.println("which vehicle do you wanna add?");
+                    String conf = scanner.nextLine();
+                    if (conf.equals("car")){
+                        CarController.showList();
+                    } else if (conf.equals("motorbike")){
+//                        MotorbikeController.showList();
+                    } else if (conf.equals("truck")) {
+//                        TruckController.showList();
+                    }
                     break;
                 case 2:
                     System.out.println("Show list");
