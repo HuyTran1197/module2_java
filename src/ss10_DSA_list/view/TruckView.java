@@ -1,6 +1,5 @@
 package ss10_DSA_list.view;
 
-import ss10_DSA_list.entity.Car;
 import ss10_DSA_list.entity.Truck;
 import ss10_DSA_list.service.ITruckService;
 
@@ -32,7 +31,7 @@ public class TruckView {
     public static void inputToDelete(ITruckService truckService){
         System.out.print("enter number of vehicle: ");
         String numDel = scanner.nextLine();
-        System.out.println("do you wanna delete product has number of car is: "+numDel+" ?");
+        System.out.println("do you wanna delete product has number of truck is: "+numDel+" ?");
         String conf = scanner.nextLine();
         if (conf.equals("yes")){
             boolean accept = truckService.delete(numDel);

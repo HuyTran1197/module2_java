@@ -25,7 +25,7 @@ public class MainController {
                     if (conf.equals("car")){
                         CarController.showList();
                     } else if (conf.equals("motorbike")){
-//                        MotorbikeController.showList();
+                        MotorbikeController.showList();
                     } else if (conf.equals("truck")) {
 //                        TruckController.showList();
                     }

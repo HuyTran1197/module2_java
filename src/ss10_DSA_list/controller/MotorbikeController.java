@@ -27,9 +27,32 @@ public class MotorbikeController {
             int choice = Integer.parseInt(scanner.nextLine());
             switch (choice){
                 case 1:
-                    System.out.println("list");
-//                    List<Motorbike> motorbikeList = motorbikeService.findAll();
-//                    MotorbikeView.showList(motorbikeList);
+                    System.out.println("List");
+                    List<Motorbike> motorbikeList = motorbikeService.findAll();
+                    MotorbikeView.showList(motorbikeList);
+                    break;
+                case 2:
+                    System.out.println("Add");
+                    Motorbike motorbikeAdd = MotorbikeView.inputToAdd();
+                    motorbikeService.add(motorbikeAdd);
+                    break;
+                case 3:
+                    System.out.println("Delete");
+                    MotorbikeView.inputToDelete(motorbikeService);
+                    break;
+                case 4:
+                    System.out.println("Update");
+                    Motorbike motorbikeUpdate = MotorbikeView.inputToUpdate();
+                    boolean isUpdateSuccess = motorbikeService.update(motorbikeUpdate);
+                    if (isUpdateSuccess){
+                        System.out.println("updated success");
+                    } else {
+                        System.out.println("updated fail");
+                    }
+                    break;
+                default:
+                    System.out.println("Return main menu");
+                    flag = false;
                     break;
             }
         }
