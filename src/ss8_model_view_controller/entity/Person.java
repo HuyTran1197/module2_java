@@ -63,6 +63,7 @@ public abstract class Person {
         }
         this.address = address;
     }
+    public abstract String getInfoToCSV();
     @Override
     public String toString(){
         return "id: "+getId()+

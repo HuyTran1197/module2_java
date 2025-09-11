@@ -9,5 +9,5 @@ public interface IMotorbikeService {
     boolean add(Motorbike motorbike);
     boolean delete(String id);
     boolean update(Motorbike motorbike);
-    boolean find(String id);
+    Motorbike find(String id);
 }

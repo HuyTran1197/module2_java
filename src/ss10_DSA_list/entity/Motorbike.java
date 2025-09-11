@@ -4,8 +4,13 @@ public class Motorbike extends Vehicle{
     private String capacity;
 
 
-    public Motorbike(String numberOfVehicle, String manufacturer, int year, String owner, String capacity) {
+    public Motorbike(String numberOfVehicle, String manufacturer, int year, String owner,String capacity) {
         super(numberOfVehicle, manufacturer, year, owner);
+        setCapacity(capacity);
+    }
+
+    public Motorbike(int id, String numberOfVehicle, String manufacturer, int year, String owner, String capacity) {
+        super(id, numberOfVehicle, manufacturer, year, owner);
         setCapacity(capacity);
     }
 

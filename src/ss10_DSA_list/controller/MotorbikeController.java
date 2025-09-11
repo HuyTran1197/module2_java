@@ -34,11 +34,21 @@ public class MotorbikeController {
                 case 2:
                     System.out.println("Add");
                     Motorbike motorbikeAdd = MotorbikeView.inputToAdd();
-                    motorbikeService.add(motorbikeAdd);
+                    if (motorbikeAdd!=null){
+                        boolean isAdded = motorbikeService.add(motorbikeAdd);
+                        System.out.println(isAdded ? "added success" : "added fail");
+                    }
                     break;
                 case 3:
                     System.out.println("Delete");
-                    MotorbikeView.inputToDelete(motorbikeService);
+                    String numDel = MotorbikeView.inputToDelete();
+                    boolean conf = MotorbikeView.confirmDelete(numDel);
+                    if (conf){
+                        boolean deleted = motorbikeService.delete(numDel);
+                        System.out.println(deleted ? "deleted success" : "deleted fail");
+                    } else {
+                        System.out.println("canceled delete");
+                    }
                     break;
                 case 4:
                     System.out.println("Update");
@@ -48,6 +58,16 @@ public class MotorbikeController {
                         System.out.println("updated success");
                     } else {
                         System.out.println("updated fail");
+                    }
+                    break;
+                case 5:
+                    System.out.println("Find");
+                    String numFind = MotorbikeView.inputToFind();
+                    Motorbike found = motorbikeService.find(numFind);
+                    if (found!=null){
+                        MotorbikeView.showFind(found);
+                    } else {
+                        System.out.println("not found number of vehicle");
                     }
                     break;
                 default:

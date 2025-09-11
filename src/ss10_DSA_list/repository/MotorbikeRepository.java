@@ -7,9 +7,10 @@ import java.util.List;
 
 public class MotorbikeRepository implements IMotorbikeRepository{
     private static List<Motorbike> motorbikes = new ArrayList<>();
+    private static int autoId = 0;
     static {
-        motorbikes.add(new Motorbike("2357","SH",2000,"Goonch","50HP"));
-        motorbikes.add(new Motorbike("2358","ABlade",2000,"Huy","50HP"));
+        motorbikes.add(new Motorbike(++autoId,"2357","SH",2000,"Goonch","50HP"));
+        motorbikes.add(new Motorbike(++autoId,"2358","ABlade",2000,"Huy","50HP"));
     }
     @Override
     public List<Motorbike> findAll(){
@@ -17,12 +18,13 @@ public class MotorbikeRepository implements IMotorbikeRepository{
     }
     @Override
     public boolean add(Motorbike motorbike){
+        motorbike.setId(++autoId);
         return motorbikes.add(motorbike);
     }
     @Override
-    public boolean delete(String id){
+    public boolean delete(String numberOfVehicle){
         for (int i = 0; i < motorbikes.size(); i++) {
-            if (motorbikes.get(i).getNumberOfVehicle().equals(id)){
+            if (motorbikes.get(i).getNumberOfVehicle().equals(numberOfVehicle)){
                 motorbikes.remove(i);
                 return true;
             }
@@ -33,6 +35,7 @@ public class MotorbikeRepository implements IMotorbikeRepository{
     public boolean update(Motorbike motorbike){
         for (int i = 0; i < motorbikes.size(); i++) {
             if (motorbikes.get(i).getNumberOfVehicle().equals(motorbike.getNumberOfVehicle())){
+                motorbike.setId(motorbikes.get(i).getId());
                 motorbikes.set(i,motorbike);
                 return true;
             }
@@ -40,13 +43,12 @@ public class MotorbikeRepository implements IMotorbikeRepository{
         return false;
     }
     @Override
-    public boolean find(String id){
-        for (int i = 0; i < motorbikes.size(); i++) {
-            if (motorbikes.get(i).getNumberOfVehicle().equals(id)){
-                System.out.println(motorbikes.get(i));
-                return true;
+    public Motorbike find(String numberOfVehicle){
+        for (Motorbike m : motorbikes){
+            if (m.getNumberOfVehicle().equals(numberOfVehicle)){
+                return m;
             }
         }
-        return false;
+        return null;
     }
 }

@@ -1,15 +1,21 @@
 package ss10_DSA_list.entity;
 
 public abstract class Vehicle {
-    private final int id;
-    private static int autoId = 1;
+    private int id;
     private String numberOfVehicle;
     private String manufacturer;
     private int year;
     private String owner;
 
     public Vehicle(String numberOfVehicle, String manufacturer, int year, String owner) {
-        this.id = autoId++;
+        this.numberOfVehicle = numberOfVehicle;
+        this.manufacturer = manufacturer;
+        this.year = year;
+        this.owner = owner;
+    }
+
+    public Vehicle(int id, String numberOfVehicle, String manufacturer, int year, String owner) {
+        setId(id);
         setNumberOfVehicle(numberOfVehicle);
         setManufacturer(manufacturer);
         setYear(year);
@@ -21,9 +27,11 @@ public abstract class Vehicle {
     }
 
     public String getNumberOfVehicle() {
-        return "43-/"+numberOfVehicle+"/";
+        return numberOfVehicle;
     }
-
+    public String formatNumber(){
+        return "43-/"+getNumberOfVehicle()+"/";
+    }
     public String getManufacturer() {
         return manufacturer;
     }
@@ -34,6 +42,10 @@ public abstract class Vehicle {
 
     public String getOwner() {
         return owner;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setNumberOfVehicle(String numberOfVehicle) {
@@ -71,7 +83,7 @@ public abstract class Vehicle {
     @Override
     public String toString() {
         return "id: "+getId()+
-                ", number of vehicle: "+getNumberOfVehicle()+
+                ", number of vehicle: "+formatNumber()+
                 ", manufacturer: '"+getManufacturer()+'\''+
                 ", year: "+getYear()+
                 ", owner: '"+getOwner()+'\'';

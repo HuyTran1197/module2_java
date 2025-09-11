@@ -39,16 +39,4 @@ public class CustomerService implements ICustomerService {
     public boolean delete(int id) {
         return customerRepository.delete(id);
     }
-
-    @Override
-    public boolean update(Customer customer) {
-        if (customer == null) {
-            System.out.println("null list");
-            return false;
-        }
-        if (customer.getName() == null || customer.getEmail() == null || customer.getAddress() == null) {
-            return false;
-        }
-        return customerRepository.update(customer);
-    }
 }

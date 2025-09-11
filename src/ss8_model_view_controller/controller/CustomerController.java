@@ -18,7 +18,6 @@ public class CustomerController {
                     "\n 1. List"+
                     "\n 2. Add"+
                     "\n 3. Delete"+
-                    "\n 4. Update"+
                     "\n 5. Return main menu"
             );
             System.out.println("choose function");
@@ -32,21 +31,16 @@ public class CustomerController {
                 case 2:
                     System.out.println("Add");
                     Customer customerAdd = CustomerView.inputDataToAddNew();
-                    customerService.add(customerAdd);
+                    boolean isSuccessAdd = customerService.add(customerAdd);
+                    if (isSuccessAdd){
+                        System.out.println("added success");
+                    } else {
+                        System.out.println("added fail");
+                    }
                     break;
                 case 3:
                     System.out.println("Delete");
                     CustomerView.inputDataToDelete(customerService);
-                    break;
-                case 4:
-                    System.out.println("Update");
-                    Customer customerUpdate = CustomerView.inputDataToUpdate();
-                    boolean isCheckAdd = customerService.update(customerUpdate);
-                    if (!isCheckAdd){
-                        System.out.println("failed update");
-                    } else{
-                        System.out.println("success updated");
-                    }
                     break;
                 default:
                     System.out.println("Returned main menu");

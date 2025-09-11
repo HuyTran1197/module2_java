@@ -1,46 +1,66 @@
 package ss8_model_view_controller.repository;
 
 import ss8_model_view_controller.entity.Customer;
+import ss8_model_view_controller.ultil.ReadAndWriteFile;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 public class CustomerRepository implements ICustomerRepository{
-    private static List<Customer> customers = new LinkedList<>();
-    static {
-        customers.add(new Customer(1,"Tùng","phanttung97@gmail.com","phu loc"));
-        customers.add(new Customer(2,"Hạo","minhhaotran97@gmail.com","phu loc"));
-    }
+    private final String CUSTOMER_FILE = "src/ss8_model_view_controller/data/customer.csv";
     @Override
     public List<Customer> findAll(){
-        return customers;
+        List<Customer> customerList = new ArrayList<>();
+        try {
+            List<String> stringList = ReadAndWriteFile.readFileCSV(CUSTOMER_FILE);
+            String[] arr = null;
+            for (int i = 0; i < stringList.size(); i++) {
+                arr = stringList.get(i).split(",");
+                Customer customer = new Customer(Integer.parseInt(arr[0]),arr[1],arr[2],arr[3]);
+                customerList.add(customer);
+            }
+        } catch (IOException e) {
+            System.out.println("file read be fail");
+        }
+
+        return customerList;
     }
     @Override
     public boolean add(Customer customer){
-        return customers.add(customer);
+        List<String> list = new LinkedList<>();
+        list.add(customer.getInfoToCSV());
+        try {
+            ReadAndWriteFile.writeListStringToCSV(CUSTOMER_FILE,list,true);
+        } catch (IOException e) {
+            System.out.println("loi ghi file");
+            return false;
+        }
+        return true;
     }
     @Override
     public boolean delete(int id){
-        for (int i = 0; i < customers.size(); i++) {
-            if (customers.get(i)!=null){
-                if (customers.get(i).getId() == id){
-                    customers.remove(i);
-                    return true;
-                }
+        // code xoa
+        boolean isSuccessDelete = false;
+        List<Customer> customerList = findAll();
+        for (int i = 0; i < customerList.size(); i++) {
+            if (id == customerList.get(i).getId()){
+                customerList.remove(i);
+                isSuccessDelete = true;
+                break;
             }
         }
-        return false;
-    }
-    @Override
-    public boolean update(Customer customer){
-        for (int i = 0; i < customers.size(); i++) {
-            if (customers.get(i)!=null){
-                if (customers.get(i).getId() == customer.getId()){
-                    customers.set(i,customer);
-                    return true;
-                }
-            }
+        // chuyen doi customList sang listString
+        List<String> stringList = new ArrayList<>();
+        for (int i = 0; i < customerList.size(); i++) {
+            stringList.add(customerList.get(i).getInfoToCSV());
         }
-        return false;
+        try {
+            ReadAndWriteFile.writeListStringToCSV(CUSTOMER_FILE,stringList,false);
+        } catch (IOException e) {
+            System.out.println("file write fail");
+        }
+        return isSuccessDelete;
     }
 }

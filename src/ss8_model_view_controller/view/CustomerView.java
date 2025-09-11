@@ -8,9 +8,11 @@ import java.util.Scanner;
 public class CustomerView {
     private static Scanner scanner = new Scanner(System.in);
     public static void displayList(List<Customer> customerList){
-        for (int i = 0; i < customerList.size(); i++) {
-            if (customerList.get(i)!=null){
-                System.out.println(customerList.get(i));
+        for (Customer customer : customerList){
+            if (customer!=null){
+                System.out.println(customer);
+            } else {
+                break;
             }
         }
     }
@@ -40,16 +42,5 @@ public class CustomerView {
         } else{
             System.out.println("canceled delete");
         }
-    }
-    public static Customer inputDataToUpdate(){
-        System.out.println("enter id need to update");
-        int id = Integer.parseInt(scanner.nextLine());
-        System.out.println("enter new name");
-        String newName = scanner.nextLine();
-        System.out.println("enter new email");
-        String newEmail = scanner.nextLine();
-        System.out.println("enter new address");
-        String newAddress = scanner.nextLine();
-        return new Customer(id,newName,newEmail,newAddress);
     }
 }
