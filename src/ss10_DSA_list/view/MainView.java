@@ -4,6 +4,6 @@ import ss10_DSA_list.controller.MainController;
 
 public class MainView {
     public static void main(String[] args) {
-        MainController.showList();
+        MainController.showListMain();
     }
 }

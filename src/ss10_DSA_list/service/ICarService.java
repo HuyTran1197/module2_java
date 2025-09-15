@@ -9,5 +9,5 @@ public interface ICarService {
     boolean add(Car car);
     boolean delete(String id);
     boolean update(Car car);
-    boolean find(String id);
+    Car find(String id);
 }

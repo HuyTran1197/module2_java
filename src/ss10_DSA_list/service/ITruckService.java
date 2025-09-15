@@ -9,5 +9,5 @@ public interface ITruckService {
     boolean add(Truck truck);
     boolean delete(String id);
     boolean update(Truck truck);
-    boolean find(String id);
+    Truck find(String id);
 }

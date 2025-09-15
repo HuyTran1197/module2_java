@@ -4,12 +4,17 @@ public class Car extends Vehicle{
     private int seats;
     private String type;
 
-
-    public Car(String numberOfVehicle, String manufacturer, int year, String owner, int seats, String type) {
+    public Car(String numberOfVehicle, Manufacturer manufacturer, int year, String owner, int seats, String type) {
         super(numberOfVehicle, manufacturer, year, owner);
         setSeats(seats);
         setType(type);
     }
+    public Car(int id,String numberOfVehicle, Manufacturer manufacturer, int year, String owner, int seats, String type) {
+        super(id,numberOfVehicle, manufacturer, year, owner);
+        setSeats(seats);
+        setType(type);
+    }
+
 
     public int getSeats() {
         return seats;
@@ -34,6 +39,16 @@ public class Car extends Vehicle{
         }
         this.type = type;
     }
+
+    @Override
+    public String getInfoToCSV() {
+        return this.getId()+
+                ","+this.getNumberOfVehicle()+
+                ","+this.getManufacturer().getId()+
+                ","+this.getYear()+","+this.getOwner()+
+                ","+this.getSeats()+","+this.getType();
+    }
+
     @Override
     public String toString(){
         return "Vehicle car { "+super.toString()+

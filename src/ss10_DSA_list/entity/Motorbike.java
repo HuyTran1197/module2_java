@@ -4,12 +4,12 @@ public class Motorbike extends Vehicle{
     private String capacity;
 
 
-    public Motorbike(String numberOfVehicle, String manufacturer, int year, String owner,String capacity) {
+    public Motorbike(String numberOfVehicle, Manufacturer manufacturer, int year, String owner,String capacity) {
         super(numberOfVehicle, manufacturer, year, owner);
         setCapacity(capacity);
     }
 
-    public Motorbike(int id, String numberOfVehicle, String manufacturer, int year, String owner, String capacity) {
+    public Motorbike(int id, String numberOfVehicle, Manufacturer manufacturer, int year, String owner, String capacity) {
         super(id, numberOfVehicle, manufacturer, year, owner);
         setCapacity(capacity);
     }
@@ -20,6 +20,17 @@ public class Motorbike extends Vehicle{
     public void setCapacity(String capacity){
         this.capacity = capacity;
     }
+
+    @Override
+    public String getInfoToCSV() {
+        return this.getId()+
+                ","+this.getNumberOfVehicle()+
+                ","+this.getManufacturer().getId()+
+                ","+this.getYear()+
+                ","+this.getOwner()+
+                ","+this.getCapacity();
+    }
+
     @Override
     public String toString(){
         return "Vehicle motorbike { "+super.toString()+

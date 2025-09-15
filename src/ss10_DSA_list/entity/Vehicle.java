@@ -3,23 +3,20 @@ package ss10_DSA_list.entity;
 public abstract class Vehicle {
     private int id;
     private String numberOfVehicle;
-    private String manufacturer;
+    private Manufacturer manufacturer;
     private int year;
     private String owner;
 
-    public Vehicle(String numberOfVehicle, String manufacturer, int year, String owner) {
+    public Vehicle(String numberOfVehicle, Manufacturer manufacturer, int year, String owner) {
         this.numberOfVehicle = numberOfVehicle;
         this.manufacturer = manufacturer;
         this.year = year;
         this.owner = owner;
     }
 
-    public Vehicle(int id, String numberOfVehicle, String manufacturer, int year, String owner) {
+    public Vehicle(int id, String numberOfVehicle, Manufacturer manufacturer, int year, String owner) {
+        this(numberOfVehicle,manufacturer,year,owner);
         setId(id);
-        setNumberOfVehicle(numberOfVehicle);
-        setManufacturer(manufacturer);
-        setYear(year);
-        setOwner(owner);
     }
 
     public int getId() {
@@ -32,7 +29,7 @@ public abstract class Vehicle {
     public String formatNumber(){
         return "43-/"+getNumberOfVehicle()+"/";
     }
-    public String getManufacturer() {
+    public Manufacturer getManufacturer() {
         return manufacturer;
     }
 
@@ -56,7 +53,7 @@ public abstract class Vehicle {
         this.numberOfVehicle = numberOfVehicle;
     }
 
-    public void setManufacturer(String manufacturer) {
+    public void setManufacturer(Manufacturer manufacturer) {
         if (manufacturer == null) {
             System.out.println("invalid manufacturer");
             return;
@@ -79,7 +76,7 @@ public abstract class Vehicle {
         }
         this.owner = owner;
     }
-
+    public abstract String getInfoToCSV();
     @Override
     public String toString() {
         return "id: "+getId()+
