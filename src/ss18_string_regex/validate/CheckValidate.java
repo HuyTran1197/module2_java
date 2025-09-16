@@ -7,7 +7,7 @@ public class CheckValidate {
     }
 
     public static boolean checkNumber(String stringNumber){
-        String regexNumber ="^[(0-9)]{4}-+[(0]{2}[0-9]{9}[)]{1}$";
+        String regexNumber ="^[(0-9)]{4}-+[(0]{2}[0-9]{9}[)]$";
         return stringNumber.matches(regexNumber);
     }
 }
