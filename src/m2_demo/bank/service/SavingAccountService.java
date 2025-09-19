@@ -9,21 +9,21 @@ import java.util.List;
 public class SavingAccountService implements ISavingAccountService{
     private ISavingAccountRepo savingAccountRepo = new SavingAccountRepo();
 
+    @Override
     public List<SavingAccount> getAll(){
         return savingAccountRepo.getAll();
     }
 
+    @Override
     public boolean add(SavingAccount savingAccount){
-        List<SavingAccount> savingAccountList = savingAccountRepo.getAll();
         if (savingAccount == null){
-            System.out.println("null valid saving account");
             return false;
         }
         if (savingAccount.getIdAccount()<0
                 || savingAccount.getSavingMoney()<0
+                || savingAccount.getDate() == null
                 || savingAccount.getSentDate()==null
                 || savingAccount.getOwner()==null){
-            System.out.println("invalid Saving Account date");
             return false;
         }
         List<SavingAccount> list = getAll();
@@ -33,5 +33,15 @@ public class SavingAccountService implements ISavingAccountService{
         }
         savingAccount.setId(id);
         return savingAccountRepo.add(savingAccount);
+    }
+
+    @Override
+    public boolean delete(int idAccount){
+        return savingAccountRepo.delete(idAccount);
+    }
+
+    @Override
+    public SavingAccount find(int idAccount){
+        return savingAccountRepo.find(idAccount);
     }
 }

@@ -7,4 +7,6 @@ import java.util.List;
 public interface ISavingAccountService {
     List<SavingAccount> getAll();
     boolean add(SavingAccount savingAccount);
+    boolean delete(int idAccount);
+    SavingAccount find(int idAccount);
 }

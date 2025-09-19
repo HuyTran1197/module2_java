@@ -1,5 +1,4 @@
 package m2_demo.bank.repo;
-
 import m2_demo.bank.entity.SavingAccount;
 import m2_demo.bank.util.ReadAndWriteFileBank;
 
@@ -10,6 +9,7 @@ import java.util.List;
 public class SavingAccountRepo implements ISavingAccountRepo{
     private final String SAVING_FILE = "src/m2_demo/bank/data/bank_accounts.csv";
 
+    @Override
     public List<SavingAccount> getAll(){
         List<SavingAccount> savingAccountList = new ArrayList<>();
         try {
@@ -33,7 +33,7 @@ public class SavingAccountRepo implements ISavingAccountRepo{
         }
         return savingAccountList;
     }
-
+    @Override
     public boolean add(SavingAccount savingAccount){
         List<String> list = new ArrayList<>();
         list.add(savingAccount.getInfoToCSV());
@@ -44,5 +44,37 @@ public class SavingAccountRepo implements ISavingAccountRepo{
             return false;
         }
         return true;
+    }
+    @Override
+    public boolean delete(int idAccount){
+        boolean isSuccessDelete = false;
+        List<SavingAccount> savingAccounts = getAll();
+        for (SavingAccount s : savingAccounts){
+            if (s.getIdAccount()==idAccount){
+                savingAccounts.remove(s);
+                isSuccessDelete = true;
+                break;
+            }
+        }
+        List<String> stringList = new ArrayList<>();
+        for (SavingAccount s : savingAccounts){
+            stringList.add(s.getInfoToCSV());
+        }
+        try {
+            ReadAndWriteFileBank.writeListStringToCSV(SAVING_FILE,stringList,false);
+        } catch (IOException e) {
+            System.out.println("file write fail");
+        }
+        return isSuccessDelete;
+    }
+    @Override
+    public SavingAccount find(int idAccount){
+        List<SavingAccount> savingAccountList = getAll();
+        for (SavingAccount s : savingAccountList){
+            if (s.getIdAccount()==idAccount){
+                return s;
+            }
+        }
+        return null;
     }
 }
