@@ -27,6 +27,7 @@ public class FuramaController {
                         break;
                     case 2:
                         System.out.println("Customer Management");
+                        CustomerController.displayMenuCustomer();
                         break;
                     case 3:
                         System.out.println("Facility Management");

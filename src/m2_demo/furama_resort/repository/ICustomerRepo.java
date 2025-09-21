@@ -1,4 +1,6 @@
 package m2_demo.furama_resort.repository;
 
-public interface ICustomerRepo{
+import m2_demo.furama_resort.model.Customer;
+
+public interface ICustomerRepo extends IRepository<Customer>{
 }
