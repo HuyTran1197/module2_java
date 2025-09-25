@@ -30,4 +30,24 @@ public class Validate {
         String idPerson = "^\\d{9,12}$";
         return id.matches(idPerson);
     }
+
+    public static boolean checkIdVL(String id){
+        String idService = "^SVVL-[0-9]{4}$";
+        return id.matches(idService);
+    }
+
+    public static boolean checkIdHO(String id){
+        String idService = "^SVHO-[0-9]{4}$";
+        return id.matches(idService);
+    }
+
+    public static boolean checkIdRO(String id){
+        String idService = "^SVRO-[0-9]{4}$";
+        return id.matches(idService);
+    }
+
+    public static boolean checkService(String name){
+        String nameSer = "^[A-Z][a-z]+$";
+        return name.matches(nameSer);
+    }
 }
