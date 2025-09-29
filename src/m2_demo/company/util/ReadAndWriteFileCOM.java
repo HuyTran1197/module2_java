@@ -1,10 +1,10 @@
-package m2_demo.bank.util;
+package m2_demo.company.util;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ReadAndWriteFileBank {
+public class ReadAndWriteFileCOM {
     public static void writeListStringToCSV(String filePath, List<String> list, boolean append) throws IOException {
         File file = new File(filePath);
         FileWriter fileWriter = new FileWriter(file,append);
